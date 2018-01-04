@@ -5,9 +5,9 @@
 //How Our Code is Executed: JS Parsers and Engines 
 
     //JS is always hosted on an enviroment like a browser
-    //this is where JS runes
-    //others are nodejs server 
-    //this lec foces on browser 
+    //this is where JS runs
+    //another is nodejs server 
+    //this lec foces on the browser 
 
 
 
@@ -34,13 +34,13 @@
     //The Defult execution context is the global execution context
     //code that is not inside any function
     //associated with the global object
-    //In the browser, that's the windoe onject
+    //In the browser, that's the window onject
 
     //ex.
     // var lastName === window.lastName
     //true
 
-    //code that is inside of function 
+    //code that is inside of a function 
     //it gets its own exection context 
 
 
@@ -88,7 +88,7 @@
 
 
         //this only works for function declarations 
-        //with function expresstions
+        //not with function expresstions
 
         //retirment(1920);
 
@@ -101,7 +101,8 @@
         // retirment(2000);
 
         //calling the function above in this ex does not work
-        //hoisting does not work for function expresstions 
+        //hoisting does not work for function expresstions
+
 
     //Hoisting also happens with variables but in a diffrent way 
 
@@ -140,7 +141,7 @@
     //Each new function creates a scope: the space/enviroment, in which the variable it defines
     //are accessible.
 
-    //the only we have to create a new scope is to write a new function 
+    //then only we have to create a new scope is to write a new function 
 
     //Lexical scoping: a functon that is lexically within another function gets access to the scope of the outer function
     //lexical means where something is written in the code
@@ -221,6 +222,122 @@
     //Method call: the this variable points to the object that is calling the method
 
     //the this keyword is not assigned a value intil a function where it is defined is actually called 
+
+
+//////////////////////////////////////
+//How 'this' keyword works 
+
+    //console.log(this);
+
+        //the results are 'this' in the globgal exection context is  the window object 
+        //that is bc the window is the defalt object
+
+    // calculateAge(2000); 
+
+    // function calculateAge(year){
+    //     console.log(2018 - year);
+    //     console.log(this);
+    // }
+
+        //the 'this' variable is once again the window object
+        //this is a regualr function call and not a method 
+        //in a regular function call the 'this' points at the window object
+
+        // var nicole = {
+        //     name: 'Nicole',
+        //     age: 23,
+        //     happy: true,
+        //     yearOfBirth: 1989,
+        //     calculateAge: function (year){
+        //         console.log(this);
+        //     }
+
+        // }
+
+        // nicole.calculateAge();
+
+        //the 'this' variable is now the nicole object 
+        //the this key word referces the th object that called the method 
+
+        // var nicole = {
+        //     name: 'Nicole',
+        //     happy: true,
+        //     yearOfBirth: 1989,
+        //     calculateAge: function (year){
+        //         console.log(this);
+        //         console.log(2018 - this.yearOfBirth);
+        //         function innerFunction(){
+        //             console.log(this);
+        //         }
+        //         innerFunction();
+        //     }
+
+
+        // }
+
+        // nicole.calculateAge();
+
+        //the 'this' in the calculateAge function is calling the nicole object 
+        //calculateAge is a method of the nicole object 
+        //the 'this' in the innerFunction is now back to being the window
+        //this is bc a a regular function call happens then the default object is the window object
+        //even though innerFuntion is in an object it is still a regular method
+
+
+
+    //Method Borrowing 
+
+        //1. I am going to make another object daniella 
+
+        // var daniella = {
+        //     name: 'Daniella',
+        //     happy: true,
+        //     yearOfBirth: 1990,
+        // }
+
+        //2. I am going to borrow the calculateAge function 
+            //do not need parenteses bc we are not calling a function
+            //the function is acting as a variable
+
+
+            //daniella.calculateAge = nicole.calculateAge;
+
+            //now we call
+
+            //daniella.calculateAge();
+
+            //proves this this variable is only assigned a value is when the onject is called the method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
 
